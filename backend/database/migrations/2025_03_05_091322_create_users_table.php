@@ -19,6 +19,8 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->enum('role', ['admin', 'staff']);
+            $table->string('biometric_key')->nullable(); // Lưu token hoặc public key
+            $table->boolean('biometric_enabled')->default(false); // Kiểm tra xem user có bật sinh trắc học không
             $table->timestamps();
         });
     }
